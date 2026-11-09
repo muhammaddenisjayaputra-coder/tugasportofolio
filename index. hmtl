@@ -1,0 +1,225 @@
+!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portofolio siswa TJKT — Junior Network Engineer." />
+  <title>Portofolio | Junior Network Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #08111f; --panel: #0d1a2b; --panel2: #102239;
+      --text: #edf5ff; --muted: #91a5bd; --line: rgba(160,190,220,.15);
+      --cyan: #45d6d0; --blue: #5b9cff; --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Manrope, sans-serif; line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 44px)); margin: auto; }
+    .nav-wrap { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(18px); background: rgba(8,17,31,.82); border-bottom: 1px solid var(--line); }
+    nav { height: 76px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -.04em; }
+    .brand-mark { width: 34px; height: 34px; border: 1px solid rgba(69,214,208,.55); border-radius: 10px; display: grid; place-items: center; color: var(--cyan); font-family: "DM Mono", monospace; font-size: 13px; box-shadow: 0 0 24px rgba(69,214,208,.12); }
+    .nav-links { display: flex; gap: 30px; color: var(--muted); font-size: 13px; font-weight: 700; }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-cta { border: 1px solid rgba(69,214,208,.5); color: var(--cyan); padding: 10px 16px; border-radius: 8px; font-size: 12px; font-weight: 800; }
+    .hero { min-height: 650px; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 50px; padding: 82px 0 90px; position: relative; }
+    .eyebrow { color: var(--cyan); font: 12px "DM Mono", monospace; letter-spacing: .13em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+    .eyebrow:before { content: ""; width: 28px; height: 1px; background: var(--cyan); }
+    h1 { font-size: clamp(42px, 6vw, 70px); line-height: 1.08; letter-spacing: -.065em; margin: 22px 0; max-width: 690px; }
+    h1 span { color: var(--cyan); }
+    .intro { color: var(--muted); max-width: 550px; font-size: 16px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 32px; }
+    .btn { padding: 13px 19px; border-radius: 8px; font-size: 13px; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; transition: .2s; }
+    .btn-primary { background: var(--cyan); color: #06141d; }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(69,214,208,.2); }
+    .btn-secondary { border: 1px solid var(--line); color: var(--text); }
+    .btn-secondary:hover { border-color: var(--cyan); }
+    .hero-meta { display: flex; gap: 28px; margin-top: 48px; color: var(--muted); font: 11px "DM Mono", monospace; text-transform: uppercase; letter-spacing: .06em; }
+    .hero-meta strong { color: var(--text); display: block; font: 700 13px Manrope; margin-top: 5px; letter-spacing: 0; text-transform: none; }
+    .visual { min-height: 390px; display: grid; place-items: center; position: relative; }
+    .orbit { width: min(390px, 100%); aspect-ratio: 1; border: 1px solid rgba(91,156,255,.22); border-radius: 50%; position: relative; display: grid; place-items: center; background: radial-gradient(circle, rgba(69,214,208,.08), transparent 62%); }
+    .orbit:before, .orbit:after { content: ""; position: absolute; border: 1px dashed rgba(69,214,208,.28); border-radius: 50%; inset: 11%; }
+    .orbit:after { inset: 23%; border-style: solid; border-color: rgba(91,156,255,.25); }
+    .core { width: 118px; height: 118px; border-radius: 28px; background: linear-gradient(145deg, #153b55, #0c2034); border: 1px solid rgba(69,214,208,.6); display: grid; place-items: center; box-shadow: 0 0 60px rgba(69,214,208,.17); z-index: 2; }
+    .core svg { width: 55px; stroke: var(--cyan); }
+    .node { position: absolute; z-index: 3; width: 54px; height: 54px; display: grid; place-items: center; border: 1px solid rgba(91,156,255,.45); background: #10243a; border-radius: 16px; color: var(--cyan); box-shadow: 0 8px 30px #050c16; }
+    .node svg { width: 23px; stroke: currentColor; fill: none; stroke-width: 1.7; }
+    .n1 { top: 5%; left: 43%; } .n2 { right: 4%; top: 42%; } .n3 { bottom: 7%; left: 43%; } .n4 { left: 4%; top: 42%; }
+    .signal { position: absolute; bottom: 4%; right: -2%; font: 10px "DM Mono", monospace; color: var(--muted); background: var(--panel); border: 1px solid var(--line); padding: 12px 14px; border-radius: 8px; }
+    .signal b { color: var(--cyan); font-weight: 500; }
+    section { padding: 88px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 25px; margin-bottom: 38px; }
+    .section-kicker { color: var(--cyan); font: 11px "DM Mono", monospace; letter-spacing: .12em; text-transform: uppercase; }
+    h2 { margin: 8px 0 0; font-size: clamp(28px, 4vw, 42px); letter-spacing: -.05em; line-height: 1.2; }
+    .section-note { max-width: 390px; color: var(--muted); font-size: 13px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .card { background: linear-gradient(145deg, rgba(16,34,57,.9), rgba(13,26,43,.8)); border: 1px solid var(--line); border-radius: 14px; padding: 26px; }
+    .card p { color: var(--muted); font-size: 14px; margin-bottom: 0; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+    .tag { border: 1px solid rgba(69,214,208,.22); color: #a9e8e5; background: rgba(69,214,208,.06); border-radius: 6px; padding: 7px 10px; font: 10px "DM Mono", monospace; }
+    .skill-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .skill { padding: 22px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); }
+    .skill-icon { color: var(--cyan); font: 22px "DM Mono", monospace; }
+    .skill h3 { margin: 13px 0 7px; font-size: 15px; }
+    .skill p { color: var(--muted); font-size: 12px; margin: 0; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .project { padding: 25px; background: var(--panel); border: 1px solid var(--line); border-radius: 13px; transition: .2s; }
+    .project:hover { border-color: rgba(69,214,208,.5); transform: translateY(-3px); }
+    .project-top { display: flex; justify-content: space-between; color: var(--cyan); font: 11px "DM Mono", monospace; }
+    .project h3 { margin: 25px 0 8px; font-size: 19px; }
+    .project p { color: var(--muted); font-size: 13px; }
+    .project .tag-row { margin-top: 17px; }
+    .learning { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .learning-item { display: flex; gap: 17px; padding: 19px 0; border-bottom: 1px solid var(--line); }
+    .learning-item:last-child { border: 0; }
+    .num { color: var(--cyan); font: 12px "DM Mono", monospace; padding-top: 4px; }
+    .learning-item h3 { font-size: 14px; margin: 0 0 4px; }
+    .learning-item p { color: var(--muted); font-size: 12px; margin: 0; }
+    .contact-box { background: linear-gradient(120deg, #102b3d, #102039); border: 1px solid rgba(69,214,208,.25); border-radius: 18px; padding: 48px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .contact-box p { color: var(--muted); max-width: 480px; font-size: 14px; }
+    footer { padding: 27px 0; border-top: 1px solid var(--line); color: var(--muted); font: 10px "DM Mono", monospace; display: flex; justify-content: space-between; gap: 20px; }
+    .mono { font-family: "DM Mono", monospace; }
+    @media (max-width: 800px) {
+      .nav-links { display: none; } .hero { grid-template-columns: 1fr; padding-top: 65px; gap: 25px; }
+      .visual { min-height: 330px; } .orbit { width: 310px; }
+      .about-grid, .learning { grid-template-columns: 1fr; } .skill-grid { grid-template-columns: repeat(2,1fr); }
+      .section-head { display: block; } .section-note { margin-top: 15px; }
+      .contact-box { padding: 30px; display: block; } .contact-box .btn { margin-top: 12px; }
+    }
+    @media (max-width: 520px) {
+      .container { width: min(100% - 30px, 1120px); } nav { height: 66px; }
+      .nav-cta { padding: 8px 11px; } .hero { min-height: auto; padding: 58px 0 65px; }
+      h1 { font-size: 44px; } .hero-meta { gap: 17px; flex-wrap: wrap; }
+      .skill-grid, .project-grid { grid-template-columns: 1fr; } section { padding: 65px 0; }
+      .visual { min-height: 300px; } .orbit { width: 275px; } .node { width: 45px; height: 45px; }
+      .signal { right: -1%; bottom: -2%; } footer { display: block; line-height: 2; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav class="container">
+      <a class="brand" href="#home"><span class="brand-mark">N//</span><span>NETWORK<span style="color:var(--cyan)">.PROFILE</span></span></a>
+      <div class="nav-links">
+        <a href="#about">Tentang</a><a href="#skills">Keahlian</a><a href="#projects">Proyek</a><a href="#learning">Pembelajaran</a>
+      </div>
+      <a class="nav-cta" href="#contact">Hubungi Saya ↗</a>
+    </nav>
+  </div>
+
+  <main>
+    <header class="container hero" id="home">
+      <div>
+        <div class="eyebrow">Student · TJKT · Future Network Engineer</div>
+        <h1>Membangun koneksi.<br><span>Menghubungkan</span> masa depan.</h1>
+        <p class="intro">Halo, saya <strong>[Nama Kamu]</strong>, siswa kelas X jurusan Teknik Jaringan Komputer dan Telekomunikasi (TJKT). Saya tertarik mempelajari infrastruktur jaringan, konfigurasi perangkat, dan teknologi yang menghubungkan dunia.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">Lihat Portofolio <span>↗</span></a>
+          <a class="btn btn-secondary" href="#about">Kenali Saya</a>
+        </div>
+        <div class="hero-meta">
+          <div>Status<strong>Pelajar Aktif</strong></div>
+          <div>Bidang<strong>Computer Networking</strong></div>
+          <div>Fokus<strong>Terus Belajar</strong></div>
+        </div>
+      </div>
+      <div class="visual" aria-label="Ilustrasi topologi jaringan">
+        <div class="orbit">
+          <div class="core">
+            <svg viewBox="0 0 64 64" fill="none" stroke-width="2">
+              <rect x="10" y="12" width="44" height="15" rx="4"/><rect x="10" y="37" width="44" height="15" rx="4"/>
+              <path d="M18 19h3m5 0h3m-11 25h3m5 0h3M42 19h5m-5 25h5M32 27v10"/>
+            </svg>
+          </div>
+          <div class="node n1"><svg viewBox="0 0 24 24"><path d="M3 8.5a13 13 0 0 1 18 0M6.5 12a8 8 0 0 1 11 0M10 15.5a3 3 0 0 1 4 0M12 19h.01"/></svg></div>
+          <div class="node n2"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h4m-4 4h2m4 0h4"/></svg></div>
+          <div class="node n3"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4a13 13 0 0 1 0 16M12 4a13 13 0 0 0 0 16"/></svg></div>
+          <div class="node n4"><svg viewBox="0 0 24 24"><path d="M4 7h16v10H4zM8 17v3m8-3v3M8 11h.01M12 11h.01M16 11h.01"/></svg></div>
+        </div>
+        <div class="signal">NETWORK STATUS &nbsp; <b>● ONLINE</b><br><span style="opacity:.65">Learning mode activated_</span></div>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head"><div><div class="section-kicker">01 / About me</div><h2>Tentang Saya</h2></div><p class="section-note">Berawal dari rasa ingin tahu tentang bagaimana perangkat saling terhubung, saya mulai mengenal dunia jaringan komputer.</p></div>
+        <div class="about-grid">
+          <div class="card">
+            <div class="section-kicker">Profil singkat</div>
+            <p>Saya adalah pelajar kelas X TJKT yang sedang membangun fondasi di bidang jaringan komputer dan telekomunikasi. Saya senang belajar hal baru, mencoba praktik langsung, dan memahami cara kerja teknologi di balik koneksi internet.</p>
+          </div>
+          <div class="card">
+            <div class="section-kicker">Tujuan saya</div>
+            <p> Mengembangkan kemampuan teknis dan problem solving agar dapat menjadi Junior Network Engineer yang kompeten, teliti, serta mampu bekerja sama dalam tim.</p>
+            <div class="tag-row"><span class="tag">Curious Learner</span><span class="tag">Problem Solver</span><span class="tag">Teamwork</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head"><div><div class="section-kicker">02 / Technical skills</div><h2>Bidang yang Saya Pelajari</h2></div><p class="section-note">Kemampuan yang sedang saya pelajari dan kembangkan melalui materi sekolah maupun latihan mandiri.</p></div>
+        <div class="skill-grid">
+          <article class="skill"><div class="skill-icon">01 /</div><h3>Dasar Jaringan</h3><p>Memahami konsep LAN, WAN, topologi jaringan, serta model komunikasi dasar.</p></article>
+          <article class="skill"><div class="skill-icon">02 /</div><h3>IP Addressing</h3><p>Mengenal IPv4, subnet mask, gateway, dan konsep pembagian alamat IP.</p></article>
+          <article class="skill"><div class="skill-icon">03 /</div><h3>Network Devices</h3><p>Mempelajari fungsi router, switch, access point, kabel, dan konektor jaringan.</p></article>
+          <article class="skill"><div class="skill-icon">04 /</div><h3>Network Cabling</h3><p>Mengenal jenis kabel UTP, urutan warna, serta praktik dasar pengkabelan.</p></article>
+          <article class="skill"><div class="skill-icon">05 /</div><h3>Network Simulation</h3><p>Berlatih membuat topologi dan memahami alur koneksi melalui simulator jaringan.</p></article>
+          <article class="skill"><div class="skill-icon">06 /</div><h3>Troubleshooting</h3><p>Belajar mengidentifikasi masalah koneksi dan melakukan pengecekan dasar.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head"><div><div class="section-kicker">03 / Selected works</div><h2>Proyek & Praktik</h2></div><p class="section-note">Contoh ruang untuk menampilkan hasil praktik. Ganti deskripsi ini sesuai proyek yang benar-benar pernah kamu kerjakan.</p></div>
+        <div class="project-grid">
+          <article class="project"><div class="project-top"><span>PROJECT_001</span><span>NETWORK BASICS</span></div><h3>Simulasi Topologi LAN</h3><p>Membuat rancangan jaringan lokal sederhana yang menghubungkan beberapa komputer melalui perangkat switch.</p><div class="tag-row"><span class="tag">LAN</span><span class="tag">Topology</span><span class="tag">Simulation</span></div></article>
+          <article class="project"><div class="project-top"><span>PROJECT_002</span><span>IP ADDRESSING</span></div><h3>Konfigurasi IP Address</h3><p>Latihan memberikan alamat IP pada perangkat dan melakukan pengujian konektivitas dalam satu jaringan.</p><div class="tag-row"><span class="tag">IPv4</span><span class="tag">Gateway</span><span class="tag">Ping</span></div></article>
+          <article class="project"><div class="project-top"><span>PROJECT_003</span><span>CABLING</span></div><h3>Praktik Kabel UTP</h3><p>Mempelajari standar pengkabelan dan membuat kabel jaringan straight-through untuk kebutuhan koneksi LAN.</p><div class="tag-row"><span class="tag">UTP</span><span class="tag">RJ45</span><span class="tag">T568B</span></div></article>
+          <article class="project"><div class="project-top"><span>PROJECT_004</span><span>DOCUMENTATION</span></div><h3>Dokumentasi Perangkat</h3><p>Menyusun catatan sederhana mengenai perangkat jaringan, fungsi, dan skema koneksi yang digunakan.</p><div class="tag-row"><span class="tag">Research</span><span class="tag">Documentation</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="learning">
+      <div class="container">
+        <div class="section-head"><div><div class="section-kicker">04 / Learning path</div><h2>Perjalanan Belajar</h2></div><p class="section-note">Saya percaya kemampuan dibangun dari rasa ingin tahu, latihan yang konsisten, dan kemauan untuk terus berkembang.</p></div>
+        <div class="learning">
+          <div class="card">
+            <div class="learning-item"><span class="num">01</span><div><h3>Fondasi TJKT</h3><p>Mengenal komputer, perangkat jaringan, dan konsep telekomunikasi.</p></div></div>
+            <div class="learning-item"><span class="num">02</span><div><h3>Praktik Jaringan Dasar</h3><p>Mempelajari topologi, pengkabelan, serta konfigurasi IP.</p></div></div>
+            <div class="learning-item"><span class="num">03</span><div><h3>Eksplorasi Tools</h3><p>Mencoba tools simulasi dan utilitas untuk memahami jaringan.</p></div></div>
+          </div>
+          <div class="card">
+            <div class="section-kicker">Currently exploring</div>
+            <h3 style="font-size:21px;margin:14px 0 8px">Next stop: Network Administration</h3>
+            <p style="color:var(--muted);font-size:13px">Target pembelajaran berikutnya adalah memperdalam konfigurasi router dan switch, memahami layanan jaringan, serta meningkatkan kemampuan troubleshooting secara bertahap.</p>
+            <div class="tag-row"><span class="tag">Routing</span><span class="tag">Switching</span><span class="tag">Linux Basics</span><span class="tag">Network Security</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div><div class="section-kicker">05 / Get in touch</div><h2>Mari terhubung.</h2><p>Terbuka untuk berbagi pengetahuan, berdiskusi seputar teknologi jaringan, dan mendapatkan kesempatan belajar bersama.</p></div>
+          <a class="btn btn-primary" href="mailto:emailkamu@example.com">Email Saya ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <span>© <span id="year"></span> [Nama Kamu] · TJKT STUDENT</span>
+    <span>BUILT WITH CURIOSITY & NETWORKS_</span>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
